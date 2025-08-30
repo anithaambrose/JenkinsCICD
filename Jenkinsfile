@@ -35,6 +35,19 @@ pipeline
   }
 }
   }
+  stage('deploy-dev')
+  {
+    steps{
+        dir("/var/www/html")
+        {
+            unstash "maven-build"
+        }
+        sh """
+        cd /var/www/html
+        jar -xvf Example-0.0.1-SNAPSHOT.war
+        """
+    }
+  }
 
 }
 }
