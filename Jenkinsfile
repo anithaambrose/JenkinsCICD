@@ -10,8 +10,9 @@ pipeline
     }
   }
 
-  stage('test') {
-    parallel
+  stage('test') 
+  {
+    parallel {
       stage('testA'){
         steps {
           sh 'mvn test'
@@ -24,6 +25,7 @@ pipeline
           echo "i'm from testb"
           }
       }
+    }
 
       }
   }
