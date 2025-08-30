@@ -3,6 +3,10 @@ pipeline
   agent {
     label 'server1'
  }
+ parameters {
+  choice choices: ['dev', 'prod'], name: 'select_environment'
+}
+
  stages {
   stage('build') {
     steps {
@@ -37,6 +41,25 @@ pipeline
   }
   stage('deploy-dev')
   {
+    when { expression {p==arams.select_environment  'dev'}
+    beforeAgent true}
+    agent { label 'server1'}
+    steps{
+        dir("/var/www/html")
+        {
+            unstash "maven-build"
+        }
+        sh """
+        cd /var/www/html
+        jar -xvf Example-0.0.1-SNAPSHOT.war
+        """
+    }
+  }
+    stage('deploy-prod')
+  { 
+    when { expression {p==arams.select_environment  'prod'}
+    beforeAgent true}
+    agent { label 'server2'}
     steps{
         dir("/var/www/html")
         {
