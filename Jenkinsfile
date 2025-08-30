@@ -26,10 +26,8 @@ pipeline
           }
       }
     }
-
-      }
-    post {
-    success {
+   post {
+   success {
       dir("target/")
       {
       stash name: "maven-build", includes: "*.war"
@@ -38,4 +36,5 @@ pipeline
 }
   }
 
+}
 }
