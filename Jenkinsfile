@@ -11,11 +11,21 @@ pipeline
   }
 
   stage('test') {
-    steps {
-      sh 'mvn test'
+    parallel
+      stage('testA'){
+        steps {
+          sh 'mvn test'
+          echo "i'm from testa"
           }
-  }
+      }
+      stage('testB'){
+        steps {
+          sh 'mvn test'
+          echo "i'm from testb"
+          }
+      }
 
-}
+      }
+  }
 
 }
