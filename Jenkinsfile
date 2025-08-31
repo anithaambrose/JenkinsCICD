@@ -47,7 +47,7 @@ pipeline
             unstash "maven-build"
         }
         sh """
-        cd /var/www/html
+        cd /var/www/html/webapp/target/
         jar -xvf webapp.war
         """
     }
