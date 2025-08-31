@@ -43,7 +43,6 @@ pipeline
   {
     when { expression {params.select_environment == 'dev'}
     beforeAgent true}
-    agent { label 'server1'}
     steps{
         dir("/var/www/html")
         {
