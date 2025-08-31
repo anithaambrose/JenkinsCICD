@@ -50,7 +50,7 @@ pipeline
         }
         sh """
         cd /var/www/html
-        jar -xvf Example-0.0.1-SNAPSHOT.war
+        jar -xvf webapp.war
         """
     }
   }
@@ -66,7 +66,7 @@ pipeline
         }
         sh """
         cd /var/www/html
-        jar -xvf Example-0.0.1-SNAPSHOT.war
+        jar -xvf webapp.war
         """
     }
   }
