@@ -11,6 +11,7 @@ pipeline
   stage('build') {
     steps {
       sh 'mvn clean package -DskipTests=true'
+      stash name: 'maven-build', includes: 'target/webapp.war'
     }
   }
 
@@ -32,10 +33,7 @@ pipeline
     }
    post {
    success {
-      dir("target/")
-      {
-      stash name: "maven-build", includes: "webapp.war"
-      }
+      echo "it is success"
   }
 }
   }
