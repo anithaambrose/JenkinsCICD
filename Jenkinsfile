@@ -70,29 +70,6 @@ pipeline
   }
 
 }
-  post {
-    success {
-        emailext (
-            subject: "✅ SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: """Hello Team,<br><br>
-                     Deployment was successful.<br>
-                     <b>Job:</b> ${env.JOB_NAME}<br>
-                     <b>Build:</b> ${env.BUILD_NUMBER}<br>
-                     <b>URL:</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a><br><br>
-                     Regards,<br>
-                     Jenkins CI/CD""",
-            to: "techfamersrikanth@gmail.com"
-        )
-    }
-    failure {
-        emailext (
-            subject: "❌ FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: """Hello Team,<br><br>
-                     Deployment failed.<br>
-                     Check logs at: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a>""",
-            to: "techfamersrikanth@gmail.com"
-        )
-    }
-}
+ 
 }
 
