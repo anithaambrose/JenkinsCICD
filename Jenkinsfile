@@ -11,7 +11,7 @@ pipeline
   stage('build') {
     steps {
       sh 'mvn clean package -DskipTests=true'
-      stash name: 'maven-build', includes: 'target/webapp.war'
+      stash name: 'maven-build', includes: 'webapp/target/webapp.war'
     }
   }
 
