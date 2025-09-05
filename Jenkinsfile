@@ -29,10 +29,11 @@ pipeline
   }
    post {
     success {
-    dir("target/")
-    {
-      stash name "maven-build", includes: "*.war"
+      dir("target/")
+        {
+          stash name: "maven-build", includes: "*.war"
+        }
     }
-}
-}
-}
+   }
+ }
+ }
