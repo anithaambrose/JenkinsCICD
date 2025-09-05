@@ -1,7 +1,7 @@
 pipeline
 {
   agent {
-    label 'server-1'
+    label 'server-2'
  }
  stages {
   stage('build') {
