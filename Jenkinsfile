@@ -1,7 +1,7 @@
 pipeline
 {
   agent {
-    label 'server-2'
+    label 'server-1'
  }
  parameters {
   choice choices: ['dev', 'prod'], name: 'select_environment'
